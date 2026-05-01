@@ -1,0 +1,54 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8849
+      config:
+        namespace: 75a593f5-33e6-4c65-b2a0-18c403d20f63
+        file-extension: yaml
+        shared-configs:
+          - data-id: shared-mysql.yaml
+            group: DEFAULT_GROUP
+            refresh: false
+          - data-id: shared-redis-cluster.yaml
+            group: DEFAULT_GROUP
+            refresh: false
+          - data-id: shared-es.yaml
+            group: DEFAULT_GROUP
+            refresh: false
+          - data-id: shared-application.yaml
+            group: DEFAULT_GROUP
+            refresh: false
+          - data-id: shared-rabbitmq.yaml
+            group: DEFAULT_GROUP
+            refresh: false
+      discovery:
+        namespace: 75a593f5-33e6-4c65-b2a0-18c403d20f63
+        ip: ${ACCESS_IP:}
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/jzo2o-foundations?useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+    port: 6380
+    database: 0
+  elasticsearch:
+    host: 127.0.0.1
+    port: 9200
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        auto-startup: false
+jzo2o:
+  jwtKey: "jzo2o-jwt-key-2024"
+
+
+#################     日志配置     #################
+logging:
+  level:
+    com.jzo2o: debug
