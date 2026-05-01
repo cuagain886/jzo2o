@@ -148,6 +148,7 @@ wrk/
 # Docs (exclude entire directory)
 docs/
 jzo2o-foundations/docs/
+jzo2o-foundations/docker/
 jzo2o-market/docs/
 
 # ========================
